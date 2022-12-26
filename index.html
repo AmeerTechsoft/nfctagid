@@ -6,12 +6,43 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
  
     <title>Adeigbe Ameer | Business card</title>
+
+    <link rel="manifest" href="/manifest.json">
  
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;600&display=swap" rel="stylesheet">
     <link rel="stylesheet"
-  href="https://fonts.googleapis.com/css?family=Josefin Sans"><!--Stylesheet-->
+  href="https://fonts.googleapis.com/css?family=Josefin Sans">
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script>
+    function createContact() {
+      if ('contacts' in navigator) {
+        // The navigator.contacts API is supported
+        var contact = navigator.contacts.create();
+        contact.displayName = 'John Smith';
+        contact.nickname = 'Johnny';
+    
+        var phoneNumbers = [];
+        phoneNumbers[0] = new ContactField('work', '123-456-7890', false);
+        contact.phoneNumbers = phoneNumbers;
+    
+        contact.save(onSuccess, onError);
+    
+        function onSuccess() {
+          console.log('Contact saved successfully');
+        }
+    
+        function onError(error) {
+          console.log('Error saving contact: ' + error.code);
+        }
+      } else {
+        // The navigator.contacts API is not supported
+        // Provide a fallback option, such as a link to a vCard file
+        document.getElementById('download-link').style.display = 'block';
+      }
+    }
+    </script>
     <style media="screen" >
       *,
 *:before,
@@ -245,72 +276,43 @@ h2{
             <a style="text-decoration: none;" href="mailto:ameeradeigbe@gmail.com"><div class="emi"><i class="fas fa-at"></i>  E-mail</div></a>
         </div>
         <button onclick="saveContact()">Save Contact</button>
+
+        <script>
+            async function saveContact() {
+              // Check if the browser supports the Web Contacts API
+              if ('contacts' in navigator && 'Contact' in window) {
+                // Create a new contact object
+                const contact = new Contact({
+                  name: [{
+                    givenName: ['Ameer'],
+                    familyName: ['Adeigbe']
+                  }],
+                  emails: [{
+                    type: 'personal',
+                    value: 'ameeradeigbe@gmail.com'
+                  }],
+                  phoneNumbers: [{
+                    type: 'mobile',
+                    value: '+2348134714184'
+                  }]
+                });
+          
+                // Try to save the contact
+                try {
+                  await contact.save();
+                  alert('Contact saved successfully');
+                } catch (error) {
+                  console.error(error);
+                  alert('An error occurred while saving the contact');
+                }
+              } else {
+                alert('Your browser does not support the Web Contacts API');
+              }
+            }
+          </script>          
     </form>
     
-  <script>
-    function saveContact() {
-  // Check if the device is a mobile device and if the navigator.contacts API is supported
-  var isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
-  if (isMobile && navigator.contacts) {
-    // Create a new contact object
-    var contact = navigator.contacts.create();
-
-    // Set the contact's properties
-    contact.displayName = 'FirstName LastName';
-    contact.nickname = 'FirstName';
-    contact.organizations = [{
-      name: 'CompanyName',
-      title: 'JobTitle'
-    }];
-    contact.phoneNumbers = [{
-      type: 'work',
-      value: '123-456-7890',
-      pref: true
-    }];
-    contact.emails = [{
-      type: 'work',
-      value: 'email@example.com',
-      pref: true
-    }];
-    contact.urls = [{
-      type: 'work',
-      value: 'http://www.example.com',
-      pref: true
-    }];
-    contact.note = 'Additional information about the person.';
-
-    // Save the contact
-    contact.save(function() {
-      // Contact saved successfully
-      console.log('Contact saved successfully');
-    }, function(error) {
-      // Error saving contact
-      console.error('Error saving contact: ' + error);
-    });
-  } else {
-    // If the device is not a mobile device or the navigator.contacts API is not supported, use the data: protocol to create a download link for the vCard file
-    var vcard = 'BEGIN:VCARD\n' +
-                'VERSION:3.0\n' +
-                'N:LastName;FirstName\n' +
-                'FN:FirstName LastName\n' +
-                'ORG:CompanyName\n' +
-                'TITLE:JobTitle\n' +
-                'TEL;TYPE=work,voice;VALUE=uri:tel:123-456-7890\n' +
-                'EMAIL:email@example.com\n' +
-                'URL:http://www.example.com\n' +
-                'NOTE:Additional information about the person.\n' +
-                'END:VCARD';
-                
-    vcard = encodeURIComponent(vcard);
-    var link = document.createElement('a');
-    link.href = 'data:text/x-vcard;charset=utf-8,' + vcard;
-    link.download = 'contact.vcf';
-    document.body.appendChild(link);
-    link.click();
-    document.body.removeChild(link);
-  }
-}
-  </script>
+ 
 </body>
 </html>
 
