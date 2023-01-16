@@ -14,45 +14,10 @@
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;600&display=swap" rel="stylesheet">
     <link rel="stylesheet"
   href="https://fonts.googleapis.com/css?family=Josefin Sans">
-  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-  <script>
-    function createContact() {
-      if ('contacts' in navigator) {
-        // The navigator.contacts API is supported
-        var contact = navigator.contacts.create();
-        contact.displayName = 'John Smith';
-        contact.nickname = 'Johnny';
-    
-        var phoneNumbers = [];
-        phoneNumbers[0] = new ContactField('work', '123-456-7890', false);
-        contact.phoneNumbers = phoneNumbers;
-    
-        contact.save(onSuccess, onError);
-    
-        function onSuccess() {
-          console.log('Contact saved successfully');
-        }
-    
-        function onError(error) {
-          console.log('Error saving contact: ' + error.code);
-        }
-      } else {
-        // The navigator.contacts API is not supported
-        // Provide a fallback option, such as a link to a vCard file
-        document.getElementById('download-link').style.display = 'block';
-      }
-    }
-    </script>
-    <style media="screen" >
-      *,
-*:before,
-*:after{
-    padding: 0;
-    margin: 0;
-    box-sizing: border-box;
-}
+    <style >
 body{
-    background-color: #080710;
+
+  background-color: #080710;
 }
 .background{
     width: 430px;
@@ -62,32 +27,41 @@ body{
     left: 50%;
     top: 50%;
 }
-.background .shape{
+.background {
+    height: 700px;
+    width: 400px;
+    position: absolute;
+    border-radius: 50%;
+}
+
+.hape{
     height: 200px;
     width: 200px;
     position: absolute;
     border-radius: 50%;
-}
-.shape:first-child{
     background: linear-gradient(
         #4a00d2,
         #8c00ff
     );
     left: -80px;
-    top: -80px;
+    top: -50px;
 }
-.shape:last-child{
+.shape{
+    height: 200px;
+    width: 200px;
+    position: absolute;
+    border-radius: 50%;
     background: linear-gradient(
         to right,
         #ff2a00,
         #d76b00
     );
-    right: -30px;
-    bottom: -80px;
+    right: -80px;
+    bottom: 0px;
 }
 form{
-    height: 520px;
-    width: 400px;
+    height: fit-content;
+    width: fit-content;
     background-color: rgba(255,255,255,0.13);
     position: absolute;
     transform: translate(-50%,-50%);
@@ -102,7 +76,7 @@ form{
 form *{
     font-family: 'Poppins',sans-serif;
     color: #ffffff;
-    letter-spacing: 0.5px;
+    letter-spacing: 0.2px;
     outline: none;
     border: none;
     position: relative;
@@ -114,26 +88,6 @@ form h3{
     text-align: center;
 }
 
-label{
-    display: block;
-    margin-top: 30px;
-    font-size: 16px;
-    font-weight: 500;
-}
-input{
-    display: block;
-    height: 50px;
-    width: 100%;
-    background-color: rgba(255,255,255,0.07);
-    border-radius: 3px;
-    padding: 0 10px;
-    margin-top: 8px;
-    font-size: 14px;
-    font-weight: 300;
-}
-::placeholder{
-    color: #e5e5e5;
-}
 button{
     margin-top: 50px;
     width: 100%;
@@ -232,36 +186,109 @@ h2{
     text-align: center;
 }
 @media only screen and (max-width: 400px) {
-  .background, form{
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    margin-left: 60px;
+  body{
+    display: flex;
+    justify-content: center;
+    align-items: center;
   }
+
+  .background{
+    width: 350px;
+    height: 420px;
+    position: absolute;
+    transform: translate(-50%,-50%);
+    display: flex;
+    justify-content: center;
+  }
+  form{
+    margin-left: 20px;
+  }
+  form h3{
+    font-size: 20px;
+    font-weight: 500;
+    line-height: 32px;
+    text-align: center;
+  }
+  .image{
+    width: 110px;
+    height: auto;
+    border-radius: 50%;
+    border: 3px solid rgb(160, 160, 160);
+}
+button{
+    margin-top: 50px;
+    width: 100%;
+    background-color: #ffffff;
+    color: #080710;
+    padding: 15px 0;
+    font-size: 10px;
+    font-weight: 600;
+    border-radius: 5px;
+    cursor: pointer;
+}.hape{
+    height: 150px;
+    width: 150px;
+    position: absolute;
+    border-radius: 50%;
+    background: linear-gradient(
+        #4a00d2,
+        #8c00ff
+    );
+    left: -40px;
+    top: -100px;
+}
+.shape{
+    height: 150px;
+    width: 150px;
+    position: absolute;
+    border-radius: 50%;
+    background: linear-gradient(
+        to right,
+        #ff2a00,
+        #d76b00
+    );
+    right: -50px;
+    bottom: -100px;
+}
+.social div{
+  background: red;
+  font-size: 12px;
+  font-weight: 500;
+  width: 100px;
+  border-radius: 3px;
+  padding: 5px 10px 10px 5px;
+  background-color: rgba(180, 0, 0, 0.27);
+  color: #eaf0fb;
+  text-align: center;
+}
+.top1{
+    width: 50px;
+    height: auto;
+    position: absolute;
+    top: 4px;
+    right: 4px;
+    opacity: 0.5;
+}
 }
 
-
-
-
-
-    </style>
+</style>
 </head>
 <body>
     <div class="background">
-        <div class="shape"></div>
-        <div class="shape"></div>
+      <div style="display: flex;">
+        <div class="hape"></div>
+        <div class="shape"></div></div>
     </div>
     <form>
-        <img class="top1" src="AmeerTechsoft.png" alt="logo">
+        <img class="top1" src="src/AmeerTechsoft.png" alt="logo">
         <div class="top" >
-            <img class="image" src="IMG_8003~2.jpeg" alt="Image">
-            <h3>Ameer A. Adeigbe  <br><span>Senior Software developer</span></h3>
+            <img class="image" src="src/IMG_8003~2.jpeg" alt="Image">
+            <h3>Ameer A. Adeigbe<span><br>Senior Software developer</span></h3>
             
         </div>
 
         <h3>AMEER TECHSOFT</h3>
-        <p style="font-size: 11px; text-align: center;">If You Can Think It, We can Build it...</p>
+        <p style="">If You Can Think It, We can Build it...</p>
         <p class="dev" >#Web_Development | #Software_Development | #Graphics </p>
         <div class="social">
           <a style="text-decoration: none;" href="https://www.google.ru/search?q=ameer%20adeigbe"><div class="go"><i class="fab fa-google"></i>  Google</div></a>
@@ -274,42 +301,7 @@ h2{
         <div class="social">
             <a style="text-decoration: none;" href="tel:+2348134714184"><div class="mo"><i class="fas fa-phone-alt"></i>  Mobile</div></a>
             <a style="text-decoration: none;" href="mailto:ameeradeigbe@gmail.com"><div class="emi"><i class="fas fa-at"></i>  E-mail</div></a>
-        </div>
-        <button onclick="saveContact()">Save Contact</button>
-
-        <script>
-            async function saveContact() {
-              // Check if the browser supports the Web Contacts API
-              if ('contacts' in navigator && 'Contact' in window) {
-                // Create a new contact object
-                const contact = new Contact({
-                  name: [{
-                    givenName: ['Ameer'],
-                    familyName: ['Adeigbe']
-                  }],
-                  emails: [{
-                    type: 'personal',
-                    value: 'ameeradeigbe@gmail.com'
-                  }],
-                  phoneNumbers: [{
-                    type: 'mobile',
-                    value: '+2348134714184'
-                  }]
-                });
-          
-                // Try to save the contact
-                try {
-                  await contact.save();
-                  alert('Contact saved successfully');
-                } catch (error) {
-                  console.error(error);
-                  alert('An error occurred while saving the contact');
-                }
-              } else {
-                alert('Your browser does not support the Web Contacts API');
-              }
-            }
-          </script>          
+        </div>         
     </form>
     
  
