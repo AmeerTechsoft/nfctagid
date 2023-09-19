@@ -46,6 +46,7 @@ body{
 }
 form{
     height: fit-content;
+    min-width: 330px;
     max-width: 350px;
     background-color: rgba(255,255,255,0.13);
     position: absolute;
@@ -73,7 +74,6 @@ form h3{
 }
 
 button{
-    margin-top: 50px;
     width: 100%;
     background-color: #ffffff;
     color: #080710;
@@ -85,13 +85,23 @@ button{
 .social{
   margin-top: 30px;
   display: flex;
+  justify-content: center;
 }
 .social div{
-  background: red;
-  width: 150px;
   border-radius: 3px;
-  padding: 5px 10px 10px 5px;
-  background-color: rgba(180, 0, 0, 0.27);
+  padding: 10px;
+  color: #eaf0fb;
+  text-align: center;
+  margin: 0 10px;
+}
+.social-2{
+  margin-top: 10px;
+  display: flex;
+  justify-content: center;
+}
+.social-2 div{
+  border-radius: 3px;
+  padding: 10px;
   color: #eaf0fb;
   text-align: center;
 }
@@ -99,34 +109,31 @@ button{
   background-color: rgba(255,255,255,0.47);
 }
 .social .ln{
-  margin-left: 25px;
   background-color: rgba(0, 94, 255, 0.87);
 }
 .social .wh{
   background-color: rgba(0, 128, 0, 0.87);
 }
 .social .ins{
-  margin-left: 25px;
   background-color: rgba(128, 0, 128, 0.87);
 }
 .social .go{
   
   background-color: rgba(143, 0, 0, 0.822);
 }
-.social .mo{
-
-  background-color: rgb(0, 0, 0);
+.social .git{
+  
+  background-color: rgba(0, 0, 0, 0.822);
 }
-.social .emi{
-  margin-left: 25px;
+
+.social-2 .mo{
+  margin: 10px;
   background-color: rgba(93, 93, 93, 0.87);
   text-decoration: none;
 }
-.social i{
-  margin-right: 4px;
-}
+
 .image{
-    width: 150px;
+    width: 120px;
     height: auto;
     border-radius: 50%;
     border: 3px solid rgb(160, 160, 160);
@@ -291,6 +298,7 @@ text-align: center;
 }
 
 
+
 @media only screen and (max-width: 400px) {
   body{
     display: flex;
@@ -313,23 +321,14 @@ text-align: center;
     text-align: center;
   }
   .image{
-    width: 110px;
+    width: 100px;
     height: auto;
     border-radius: 50%;
     border: 3px solid rgb(160, 160, 160);
 }
 
-.social div{
-  background: red;
-  font-size: 12px;
-  font-weight: 500;
-  width: 100px;
-  border-radius: 3px;
-  padding: 5px 10px 10px 5px;
-  background-color: rgba(180, 0, 0, 0.27);
-  color: #eaf0fb;
-  text-align: center;
-}
+
+
 .top1{
     width: 50px;
     height: auto;

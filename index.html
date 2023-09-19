@@ -21,7 +21,7 @@
         <img class="top1" src="src/AmeerTechsoft.png" alt="logo">
         
         <div class="top" >
-            <img class="image" src="src/IMG_8003~2.jpeg" alt="Image">
+            <img class="image" src="src/IMG2.jpeg" alt="Image">
             <div><div class="name">Ameer A. Adeigbe</div>
           <div class="title">Python Back-end Dev <span> </span> <i class="fa-brands fa-python"></i><br> Data Scientist.  <i class="fa-solid fa-magnifying-glass-chart"></i></div>
         </div>
@@ -30,17 +30,16 @@
           I am Ameer Adeigbe, I work with technology across the board, from data modeling and analysis to real-time programming. My expertise lies in Python software development, data science, web development, and IoT.
         </p>
         <div class="social">
-          <a style="text-decoration: none;" href="https://www.google.ru/search?q=ameer%20adeigbe"><div class="go"><i class="fab fa-google"></i>  Google</div></a>
-          <a style="text-decoration: none;" href="https://www.linkedin.com/in/ameer-adeigbe-02bb82164"><div class="ln"><i class="fab fa-linkedin"></i>  LinkedIn</div></a>
+          <a style="text-decoration: none;" href="https://www.google.ru/search?q=ameer%20adeigbe"><div class="go"><i class="fab fa-google"></i>  </div></a>
+          <a style="text-decoration: none;" href="https://www.linkedin.com/in/ameer-adeigbe-02bb82164"><div class="ln"><i class="fab fa-linkedin"></i>  </div></a>
+            <a style="text-decoration: none;" href="https://wa.me/message/6GL43KUI2HERB1"><div class="wh"><i class="fab fa-whatsapp"></i>  </div></a>
+            <a style="text-decoration: none;" href="https://www.instagram.com/ameer_tsoft"><div class="ins"><i class="fab fa-instagram"></i>  </div></a>
+            <a style="text-decoration: none;" href="https://github.com/AmeerTechsoft/"><div class="git"><i class="fa-brands fa-github"></i>  </div></a>
         </div>
-        <div class="social">
-            <a style="text-decoration: none;" href="https://wa.me/message/6GL43KUI2HERB1"><div class="wh"><i class="fab fa-whatsapp"></i>  Whatsapp</div></a>
-            <a style="text-decoration: none;" href="https://www.instagram.com/ameer_tsoft"><div class="ins"><i class="fab fa-instagram"></i>  Instagram</div></a>
-        </div>
-        <div class="social">
-            <a style="text-decoration: none;" href="tel:+2348134714184"><div class="mo"><i class="fas fa-phone-alt"></i>  Mobile</div></a>
-            <a style="text-decoration: none;" href="mailto:ameeradeigbe@gmail.com"><div class="emi"><i class="fas fa-at"></i>  E-mail</div></a>
-        </div>         
+        <div class="social-2">
+          <a style="text-decoration: none;" href="tel:+2348134714184"><div class="mo"><i class="fas fa-phone-alt"></i> Phone </div></a>
+          <a style="text-decoration: none;" href="mailto:ameeradeigbe@gmail.com"><div class="mo"><i class="fas fa-at"></i> E-Mail </div></a>
+      </div>         
         
         <div class="contact">
           <div>
@@ -48,49 +47,51 @@
       </div>
     
       </form>
-    
-    <script>
-      const downloadButton = document.getElementById("downloadContact");
-      const firstName = "Ameer";
-      const lastName = "Adeigbe";
-      const otherName = " "; // Add the user's other name here, if applicable
-      const email = "ameeradeigbe@gmail.com";
-      const phone = "+234 813 471 4184";
-      const company = "Ameer Techsoft";
-      const position = "CEO, Senior Dev";
-      const websiteUrl = "https://ameeradeigbe.netlify.com"; // Replace with the actual website URL
-      const photoUrl = "image.jpg"; // Replace with the actual photo URL on your server
-      const linkedinUrl = "https://www.linkedin.com/in/ameeradeigbe"; // Replace with the actual LinkedIn URL
-      const twitterUrl = "https://twitter.com/ameeradeigbe"; 
-      const facebookUrl = "https://facebook.com/ameeradeigbe";
-      const instagramUrl = "https://instagram.com/ameeradeigbe";
-      const githubUrl = "https://github.com/ameeradeigbe"
-    
-      downloadButton.addEventListener("click", () => {
-        const vCardData = `BEGIN:VCARD
-    VERSION:3.0
-    ORG:${company}
-    N:${lastName};${firstName};;${otherName}
-    
-    TITLE:${position}
-    EMAIL:${email}
-    TEL:${phone}
-    PHOTO;VALUE=URL:${photoUrl}
-    URL:${websiteUrl}
-    X-SOCIALPROFILE;type=linkedin:${linkedinUrl}
-    X-SOCIALPROFILE;type=twitter:${twitterUrl}
-    X-SOCIALPROFILE;type=facebook:${facebookUrl}
-    X-SOCIALPROFILE;type=instagram:${instagramUrl}
-    X-SOCIALPROFILE;type=github:${githubUrl}
-    END:VCARD`;
-    
-        const blob = new Blob([vCardData], { type: "text/vcard" });
-        const link = document.createElement("a");
-        link.href = URL.createObjectURL(blob);
-        link.download = `${firstName}_${lastName}.vcf`;
-        link.click();
-      });
-    </script>
+</div>
+
+<script>
+  const downloadButton = document.getElementById("downloadContact");
+  const firstName = "Ameer";
+  const lastName = "Adeigbe";
+  const otherName = "A"; // Add the user's other name here, if applicable
+  const email = "ameeradeigbe@gmail.com";
+  const phone = "+234 813 471 4184";
+  const address = " ";
+  const company = "Ameer Techsoft";
+  const position = "CEO, Senior Dev";
+  const websiteUrl = "https://ameeradeigbe.netlify.com"; // Replace with the actual website URL
+  const photoUrl = "IMG2.jpeg"; // Replace with the actual photo URL on your server
+  const linkedinUrl = "https://www.linkedin.com/in/ameeradeigbe"; // Replace with the actual LinkedIn URL
+  const twitterUrl = "https://twitter.com/ameeradeigbe";
+  const whatsappUrl = "https://wa.me/message/6GL43KUI2HERB1";
+  const instagramUrl = "https://www.instagram.com/ameer_tsoft";
+  const githubUrl = "https://github.com/AmeerTechsoft/";
+
+  downloadButton.addEventListener("click", () => {
+    const vCardData = `BEGIN:VCARD
+VERSION:3.0
+ORG:${company}
+N:${lastName};${firstName};${otherName}
+TITLE:${position}
+EMAIL:${email}
+TEL:${phone}
+ADR:${address}
+PHOTO;VALUE=URL:${photoUrl}
+URL:${websiteUrl}
+X-SOCIALPROFILE;type=whatsapp:${whatsappUrl}
+X-SOCIALPROFILE;type=twitter:${twitterUrl}
+X-SOCIALPROFILE;type=instagram:${instagramUrl}
+X-SOCIALPROFILE;type=github:${githubUrl}
+END:VCARD`;
+
+    const blob = new Blob([vCardData], { type: "text/vcard" });
+    const link = document.createElement("a");
+    link.href = URL.createObjectURL(blob);
+    link.download = `${firstName}_${lastName}.vcf`;
+    link.click();
+  });
+</script>
+
 </body>
 </html>
 
